@@ -1,4 +1,4 @@
-# westarstudio
+# WeStarStudio
 
 > The offical wechat miniapp of StarStudio
 
