@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "mpvue": "^1.0.0",
+    "mpvue-weui": "^1.0.3",
     "vuex": "^3.0.0"
   },
   "devDependencies": {
@@ -55,6 +56,7 @@
     "url-loader": "^1.0.0",
     "vue-loader": "^15.4.2",
     "vue-style-loader": "^4.1.0",
+    "vue-template-compiler": "^2.5.17",
     "webpack": "^3.11.0",
     "webpack-bundle-analyzer": "^2.13.0",
     "webpack-dev-middleware-hard-disk": "^1.12.0",

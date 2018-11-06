@@ -1,7 +1,9 @@
 <template>
     <div>
         <a href="/pages/login">登陆页</a>
+        <a href="/leave/leave">请假页</a>
     </div>
+    
   <!-- <div class="container" @click="clickHandle('test click', $event)">
 
     <div class="userinfo" @click="bindViewTap">
@@ -44,9 +46,11 @@ export default {
         }
     },
 
-    mounted() {
-        wx.redirectTo('/pages/login')
-    },
+    // mounted() {
+    //     wx.navigateTo({
+    //         url: '/pages/login'
+    //     })
+    // },
 
     components: {
         card

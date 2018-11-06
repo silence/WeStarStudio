@@ -75,6 +75,18 @@ export default {
                 console.log(this.angle)
             }, 100)
         )
+    },
+    // beforeDestroy() {
+    //     wx.stopAccelerometer()
+    // }, 不是这个
+    // destroyed() {
+    //     wx.stopAccelerometer()
+    // } 不是这个
+    // onHide() {
+    //     wx.stopAccelerometer()
+    // } 不是这个
+    onUnload() {
+        wx.stopAccelerometer()
     }
 }
 </script>
