@@ -4,15 +4,25 @@ module.exports = [
   },
   {
     path: 'leave/leave',
-    subPackage: true
-  },
+    // subPackage: true,
+    config: {
+      usingComponents: {
+        'van-button': '/static/vant/button/index',
 
+        'van-popup': '/static/vant/popup/index',
+
+        'van-area': '/static/vant/area/index',
+        'van-field': '/static/vant/field/index'
+      },
+      navigationBarTitleText: '请假页'
+    }
+  },
   {
     path: 'pages/counter'
   },
   {
     path: 'packageA/logs',
-    subPackage: true,
+    // subPackage: true,
     config: {
       // 页面配置，即 page.json 的内容
       navigationBarTitleText: '查看启动日志'

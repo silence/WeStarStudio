@@ -1,19 +1,21 @@
 {
   "name": "westarstudio",
   "version": "1.0.0",
-  "description": "The offical wechat miniapp of StarStudio",
+  "description": "The official wechat miniapp of StarStudio",
   "author": "silence <silence.since2017@gmail.com>",
   "private": true,
   "scripts": {
-    "dev": "node build/dev-server.js",
+    "dev": "rm -rf dist/ && node build/dev-server.js",
     "start": "node build/dev-server.js",
     "build": "node build/build.js",
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
+    "minapp-api-promise": "^1.0.2",
     "mpvue": "^1.0.0",
-    "mpvue-weui": "^1.0.3",
-    "vuex": "^3.0.0"
+    "vant-weapp": "^0.4.6",
+    "vuex": "^3.0.0",
+    "weapp-cookie": "^1.2.6"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

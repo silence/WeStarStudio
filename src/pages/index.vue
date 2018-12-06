@@ -3,8 +3,7 @@
         <a href="/pages/login">登陆页</a>
         <a href="/leave/leave">请假页</a>
     </div>
-    
-  <!-- <div class="container" @click="clickHandle('test click', $event)">
+    <!-- <div class="container" @click="clickHandle('test click', $event)">
 
     <div class="userinfo" @click="bindViewTap">
       <img class="userinfo-avatar" v-if="userInfo.avatarUrl" :src="userInfo.avatarUrl" background-size="cover" />
@@ -32,11 +31,12 @@
       <input type="text" class="form-control" v-model.lazy="motto" placeholder="v-model.lazy" />
     </form>
     <a href="/pages/counter" class="counter">去往Vuex示例页面</a>
-  </div> -->
+    </div>-->
 </template>
 
 <script>
 import card from '@/components/card'
+import WXP from 'minapp-api-promise'
 
 export default {
     data() {
@@ -46,11 +46,14 @@ export default {
         }
     },
 
-    // mounted() {
-    //     wx.navigateTo({
-    //         url: '/pages/login'
-    //     })
-    // },
+    async mounted() {
+        const test = (await WXP.login()).code
+        console.log(test)
+        console.log(await WXP.getUserInfo())
+        // wx.navigateTo({
+        //     url: '/leave/leave'
+        // })
+    },
 
     components: {
         card

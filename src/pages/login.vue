@@ -1,45 +1,60 @@
 <template>
-<div class="container">
-    <!-- 展示文字,类似we重邮 -->
-    <div class="title">StarStudio</div> 
-    <!-- 展示logo -->
-    <div class="content">
-        <div class="hd" :style="{transform: 'rotateZ(' + angle + 'deg)'}">
-            <img class="logo" src="../images/logo.png" />
-            <img class="wave" src="../images/wave.png" mode="aspectFill"/>
-            <img class="wave wave-bg" src="../images/wave.png" mode="aspectFill"/>
-        </div>
-        <div class="bd">
-            <form class="login-form">
-                <div class="input-group">
-                    <span class="input-label">账号</span>
-                    <input type="number" v-model="userid" cursor-spacing="30" id="userid" maxlength="7" placeholder="工作室SSO账号"  />
-                </div>
-                <div class="input-group">
-                    <span class="input-label">密码</span>
-                    <input password="true" v-model="passwd" cursor-spacing="30" id="passwd" placeholder="工作室SSO密码" />
-                </div>
-                <!-- <div class="login-help" bindtap="showHelp">
+    <div class="container">
+        <!-- 展示文字,类似we重邮 -->
+        <div class="title">StarStudio</div>
+        <!-- 展示logo -->
+        <div class="content">
+            <div class="hd" :style="{transform: 'rotateZ(' + angle + 'deg)'}">
+                <img class="logo" src="../images/logo.png">
+                <img class="wave" src="../images/wave.png" mode="aspectFill">
+                <img class="wave wave-bg" src="../images/wave.png" mode="aspectFill">
+            </div>
+            <div class="bd">
+                <form class="login-form">
+                    <div class="input-group">
+                        <span class="input-label">账号</span>
+                        <input
+                            type="number"
+                            v-model.lazy="username"
+                            cursor-spacing="30"
+                            id="userid"
+                            maxlength="7"
+                            placeholder="工作室SSO账号"
+                        >
+                    </div>
+                    <div class="input-group">
+                        <span class="input-label">密码</span>
+                        <input
+                            password="true"
+                            v-model.lazy="password"
+                            cursor-spacing="30"
+                            id="passwd"
+                            placeholder="工作室SSO密码"
+                        >
+                    </div>
+                    <!-- <div class="login-help" bindtap="showHelp">
                     <span>帮助</span>
                     <img class="login-help-img" src="/images/more/help.png"></img>
-                </div> -->
-            </form>
-            <div class="confirm-btn" bindtap="bind">
-                <div>确认绑定</div>
-            </div> 
+                    </div>-->
+                </form>
+                <div class="confirm-btn" bindtap="bind" @click="onConfirm">
+                    <div>确认绑定</div>
+                </div>
+                <button @click="test1">test</button>
+            </div>
         </div>
     </div>
-
-</div>
-
 </template>
 <script>
 import { throttle } from '../utils/'
+import WXP from 'minapp-api-promise'
 
 export default {
     data() {
         return {
-            angle: 0
+            angle: 0,
+            userid: '',
+            passwd: ''
         }
     },
     // computed: {
@@ -52,6 +67,27 @@ export default {
     methods: {
         test() {
             console.log(1)
+        },
+        onConfirm() {
+            WXP.request({
+                url: 'http://stuhome.uestc.edu.cn/api/v1/authserver/login?appid=1',
+                data: {
+                    username: 'Admin',
+                    password: 'starstudio'
+                },
+                method: 'POST'
+            }).then(res => {
+                console.log(res)
+                wx.setStorageSync('sessionid', res.header['Set-Cookie'])
+            })
+        },
+        test1() {
+            WXP.request({
+                url: 'http://stuhome.uestc.edu.cn/api/v1/authserver/login?appid=1',
+                data: {},
+                method: 'POST',
+                header: { cookie: wx.getStorageSync('sessionid') }
+            })
         }
     },
     mounted() {
