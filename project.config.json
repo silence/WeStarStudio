@@ -1,32 +1,17 @@
 {
-	"description": "项目配置文件。",
+	"miniprogramRoot": "client/dist/",
+	"cloudfunctionRoot": "cloud/functions/",
+	"projectname": "westarstudio",
+	"description": "The official wechat miniapp of StarStudio",
+	"appid": "wx9a55e424bb240b04",
 	"setting": {
 		"urlCheck": true,
 		"es6": false,
-		"postcss": true,
-		"minified": true,
-		"newFeature": true
+		"postcss": false,
+		"minified": false
 	},
-	"miniprogramRoot": "./dist/",
 	"compileType": "miniprogram",
-	"appid": "touristappid",
-	"projectname": "westarstudio",
-	"condition": {
-		"search": {
-			"current": -1,
-			"list": []
-		},
-		"conversation": {
-			"current": -1,
-			"list": []
-		},
-		"game": {
-			"currentL": -1,
-			"list": []
-		},
-		"miniprogram": {
-			"current": -1,
-			"list": []
-		}
-	}
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {}
 }
