@@ -1,7 +1,6 @@
 import '@tarojs/async-await'
 import Taro, { Component, Config } from '@tarojs/taro'
 import Index from './pages/index'
-
 import './app.scss'
 
 // 如果需要在 h5 环境中开启 React Devtools
@@ -20,12 +19,13 @@ class App extends Component {
    */
   config: Config = {
     pages: [
+      'pages/checkin/index',
       'pages/date/index',
       'pages/login/index',
       'pages/index/index',
       'pages/aftifact/index',
       'pages/ground/index',
-      'pages/arrivals/index',
+
       'pages/user/index'
     ],
     window: {
@@ -37,6 +37,12 @@ class App extends Component {
     tabBar: {
       selectedColor: '#4cc9ac',
       list: [
+        {
+          pagePath: 'pages/checkin/index',
+          text: '签到',
+          iconPath: 'static/icon/checkin.png',
+          selectedIconPath: 'static/icon/checkin-active.png'
+        },
         {
           pagePath: 'pages/date/index',
           text: '日程',
@@ -54,12 +60,6 @@ class App extends Component {
           text: '广场',
           iconPath: 'static/icon/ground.png',
           selectedIconPath: 'static/icon/ground-active.png'
-        },
-        {
-          pagePath: 'pages/arrivals/index',
-          text: '直达',
-          iconPath: 'static/icon/arrivals.png',
-          selectedIconPath: 'static/icon/arrivals-active.png'
         },
         {
           pagePath: 'pages/user/index',

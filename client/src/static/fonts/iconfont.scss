@@ -1,0 +1,26 @@
+@font-face {
+  font-family: 'iconfont';
+  src: url('iconfont.eot?t=1572527217077'); /* IE9 */
+  src: url('iconfont.eot?t=1572527217077#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */
+      url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAKgAAsAAAAABkgAAAJTAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCCcApUcAE2AiQDCAsGAAQgBYRtBy4blAXIDiUFA4lMKwoAQDz8/37f9rnvftU0amnWRNGMeSZ5ok4FD4XVKUkrVRudNZHI+ldreg2QUTs+YRdVpktceO+B97cAbOuqq6pUFapWuApHPnHv9P9fAQUy33mX45yLugDjQAp0D4wiK6GMG8YucAmPCdTNyOo7HZ1eFimZtSoQDwytLVK5oCyzTFUo1xzM4p2SanqevuFt+P34aztSJKWCVXPp/khP9J8/2jnRs8mZez4hREDHSyiwRcjEtdrkBVHBmFH1ZMwCsa/K4PzD/8Q3i70aBPvrrPImmILCexK54lvlTyAznRFhadSVFNVS9e7Hjbz2frl8/eVq4Zr6uMtsuF7+Lrc2GhsbS7Je/3EukbJyX9nbe3v7+nnl8+fr8uH9J2B2iH9W/EhfBYIX92b2m53df9VGBr///H8a6rN+bqr7cgX/RNRzKOsSy5SyKqrNJiPRc3XU1TGBvX1fY7WjG8iGqtFtuCumU3uhqokgmRlbKGnYQVnVAeo2jR1vGCBRkWvYcAIQup6QtH1EoeuZzIxPlIx9o6wbUdTdiMGFDSthZE4I24w96GyA0fVc5Vg4E1UuorZitykrCVk1pNCIQClfLGbG0EWaY0u4qpWZFSjyHBgFz6Fte+CTZ2KX8zqzXy0UVN2b8l3PERknCGpjqAd0bACGLo9L+eNZpvT5RUizwtZGLQM1wRpEQsbsoCSv2IMcU7q9Bu7lldAqTRljClCIxwFGwTxks3mAXz/PhLpYnj4i7qsq2KNUX2V+fbXzdSegztKlsBsL+ZmhDCEAAAAA')
+      format('woff2'),
+    url('iconfont.woff?t=1572527217077') format('woff'),
+    url('iconfont.ttf?t=1572527217077') format('truetype'),
+    /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+      url('iconfont.svg?t=1572527217077#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.icon {
+  display: inline-block;
+  /* 以下的 font 与上面 @font-face 的 font-family 要一致*/
+  font: normal normal normal 14px/1 iconfont;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-wifi:before {
+  content: '\eda9';
+}

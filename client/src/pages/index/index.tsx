@@ -37,7 +37,7 @@ export default () => {
   const [loading, setLoading] = useState(false)
   const [isModalOpen, setModal] = useState<Array<any>>([false])
   const handleClick = async () => {
-    if (name === '' && studentNumber === undefined) return
+    if (name === '' || studentNumber === undefined) return
     setLoading(true)
     const { userInfo } = await Taro.getUserInfo()
     const { result } = await getOpenId()
@@ -49,6 +49,10 @@ export default () => {
       setLoading(false)
       return
     }
+    await Taro.setStorage({
+      key: 'userInfo',
+      data: JSON.stringify({ name, college, studentNumber, ...userInfo, ...result })
+    })
     setLoading(false)
     setModal([true, '恭喜绑定成功🎉🎉🎉'])
   }
@@ -81,7 +85,7 @@ export default () => {
         placeholder="学号"
         error={studentNumber === undefined ? true : false}
         value={studentNumber}
-        onChange={value => setStudentNumber(value)}
+        onChange={(value: string) => setStudentNumber(Number(value))}
       />
       <AtButton
         type="primary"

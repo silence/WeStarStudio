@@ -39,3 +39,17 @@ export async function updateUserInfoC(userInfo: IUserInfo) {
     }
   })
 }
+
+export function getConnectedWifi() {
+  return Taro.startWifi().then(res => {
+    console.log(res)
+    return Taro.getConnectedWifi()
+  })
+}
+
+export async function checkIn(studentNumber: number) {
+  return await Taro.cloud.callFunction({
+    name: 'checkIn',
+    data: { studentNumber }
+  })
+}
