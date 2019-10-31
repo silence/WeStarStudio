@@ -1,7 +1,7 @@
 import Taro, { useState } from '@tarojs/taro'
 import { Picker, View, Label } from '@tarojs/components'
-// import { Login } from '@/components'
-import { AtInput, AtForm } from 'taro-ui'
+import { getOpenId, updateUserInfoC } from '@/utils'
+import { AtInput, AtForm, AtButton, AtModal } from 'taro-ui'
 import './index.scss'
 
 export default () => {
@@ -34,6 +34,24 @@ export default () => {
   ]
   const [college, setCollege] = useState(colleges[0])
   const [studentNumber, setStudentNumber] = useState<number>()
+  const [loading, setLoading] = useState(false)
+  const [isModalOpen, setModal] = useState<Array<any>>([false])
+  const handleClick = async () => {
+    if (name === '' && studentNumber === undefined) return
+    setLoading(true)
+    const { userInfo } = await Taro.getUserInfo()
+    const { result } = await getOpenId()
+    try {
+      await updateUserInfoC({ name, college, studentNumber, ...userInfo, ...result })
+    } catch (err) {
+      console.log(err)
+      setModal([true, '绑定失败'])
+      setLoading(false)
+      return
+    }
+    setLoading(false)
+    setModal([true, '恭喜绑定成功🎉🎉🎉'])
+  }
   return (
     <AtForm>
       <AtInput
@@ -41,6 +59,7 @@ export default () => {
         title="姓名"
         type="text"
         placeholder="请输入真实姓名"
+        error={name === '' ? true : false}
         value={name}
         onChange={value => setName(value)}
       />
@@ -60,8 +79,29 @@ export default () => {
         title="学号"
         type="number"
         placeholder="学号"
+        error={studentNumber === undefined ? true : false}
         value={studentNumber}
         onChange={value => setStudentNumber(value)}
+      />
+      <AtButton
+        type="primary"
+        className="confirm-btn"
+        loading={loading}
+        onClick={() => handleClick()}
+      >
+        确认绑定
+      </AtButton>
+      <AtModal
+        isOpened={isModalOpen[0]}
+        title="标题"
+        cancelText="取消"
+        confirmText="确认"
+        onClose={() => console.log('close')}
+        onCancel={() => setModal([false])}
+        onConfirm={() =>
+          isModalOpen[1] === '绑定失败' ? setModal([false]) : Taro.navigateBack({ delta: 2 })
+        }
+        content={isModalOpen[1]}
       />
     </AtForm>
   )

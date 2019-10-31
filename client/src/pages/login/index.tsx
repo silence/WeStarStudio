@@ -1,5 +1,5 @@
 import Taro, { useState, useEffect } from '@tarojs/taro'
-import { View, Image, Text, OpenData } from '@tarojs/components'
+import { View, Image, Text, OpenData, Button } from '@tarojs/components'
 import { throttle } from '@/utils'
 //import { AtActivityIndicator } from 'taro-ui'
 import './index.scss'
@@ -43,8 +43,9 @@ export default () => {
           <Image className="wave wave-bg" src="../../static/images/wave.png" mode="aspectFill" />
         </View>
         {/*后面会根据是否已绑定来更换跳转页面 */}
-        <View
+        <Button
           className="confirm-btn"
+          openType="getUserInfo"
           onClick={() =>
             // Taro.navigateBack({
             //   delta: 1
@@ -55,7 +56,7 @@ export default () => {
           }
         >
           <Text>绑定个人信息</Text>
-        </View>
+        </Button>
       </View>
     </View>
   )

@@ -1,3 +1,4 @@
+import '@tarojs/async-await'
 import Taro, { Component, Config } from '@tarojs/taro'
 import Index from './pages/index'
 
@@ -19,10 +20,9 @@ class App extends Component {
    */
   config: Config = {
     pages: [
-      'pages/index/index',
       'pages/date/index',
       'pages/login/index',
-
+      'pages/index/index',
       'pages/aftifact/index',
       'pages/ground/index',
       'pages/arrivals/index',

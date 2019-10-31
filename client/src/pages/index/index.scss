@@ -1,5 +1,9 @@
+$color-brand: #7acfa6;
 @import '~taro-ui/dist/style/components/input.scss';
 // @import '~taro-ui/dist/style/components/icon.scss';
+@import '~taro-ui/dist/style/components/button.scss';
+@import '~taro-ui/dist/style/components/loading.scss';
+@import '~taro-ui/dist/style/components/modal.scss';
 
 .picker-wrapper {
   position: relative;
@@ -20,5 +24,32 @@
     height: 44.8rpx;
     line-height: 1.5;
     flex: 1;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    right: -50%;
+    bottom: -50%;
+    border: 0 solid #d6e4ef;
+    transform: scale(0.5);
+    border-bottom-width: 1px;
+  }
+}
+
+.confirm-btn {
+  position: absolute;
+  font-size: 13pt;
+  line-height: 85rpx;
+  height: 85rpx;
+  width: 94%;
+  color: #fff;
+  text-align: center;
+  border-radius: 7px;
+  margin: 0 3%;
+  bottom: 250rpx;
+  &:active {
+    opacity: 0.8;
   }
 }
