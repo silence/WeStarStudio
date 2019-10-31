@@ -1,12 +1,12 @@
 import Taro, { useState, useEffect } from '@tarojs/taro'
 import { View, Image, Text, OpenData } from '@tarojs/components'
-//import { Header, Course, ICourse } from '@/components'
 import { throttle } from '@/utils'
 //import { AtActivityIndicator } from 'taro-ui'
 import './index.scss'
 
 export default () => {
   const [angle, setAngle] = useState(0)
+  const [easterEggTimes, setEasterEggTimes] = useState(0)
   useEffect(() => {
     Taro.startAccelerometer({
       interval: 'ui'
@@ -21,7 +21,6 @@ export default () => {
           accelerometerAngle = -14
         }
         if (angle !== accelerometerAngle) setAngle(accelerometerAngle)
-        console.log(this.angle)
       }, 100)
     )
     return () => {
@@ -30,18 +29,32 @@ export default () => {
   }, [])
   return (
     <View className="container">
-      <View className="title">StarStudio</View>
+      <View className="title">{easterEggTimes < 5 ? 'StarStudio' : '恭喜发现彩蛋🌈🥚'}</View>
       <View className="content">
         <View className="hd" style={{ transform: `rotateZ(${angle}deg)` }}>
-          <View className="logo">
-            <OpenData type="userAvatarUrl" default-avatar="../../static/images/logo.png" />
-          </View>
+          {easterEggTimes < 5 ? (
+            <View className="logo" onClick={() => setEasterEggTimes(prev => prev + 1)}>
+              <OpenData type="userAvatarUrl" default-avatar="../../static/images/logo.jpg" />
+            </View>
+          ) : (
+            <Image className="logo" src="../../static/images/logo.jpg" />
+          )}
           <Image className="wave" src="../../static/images/wave.png" mode="aspectFill" />
           <Image className="wave wave-bg" src="../../static/images/wave.png" mode="aspectFill" />
         </View>
-
-        <View className="confirm-btn">
-          <Text>进入小程序</Text>
+        {/*后面会根据是否已绑定来更换跳转页面 */}
+        <View
+          className="confirm-btn"
+          onClick={() =>
+            // Taro.navigateBack({
+            //   delta: 1
+            // })
+            Taro.navigateTo({
+              url: '../index/index'
+            })
+          }
+        >
+          <Text>绑定个人信息</Text>
         </View>
       </View>
     </View>

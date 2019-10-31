@@ -18,12 +18,56 @@ class App extends Component {
    * 提示和声明 navigationBarTextStyle: 'black' | 'white' 类型冲突, 需要显示声明类型
    */
   config: Config = {
-    pages: ['pages/test/index', 'pages/index/index'],
+    pages: [
+      'pages/index/index',
+      'pages/date/index',
+      'pages/login/index',
+
+      'pages/aftifact/index',
+      'pages/ground/index',
+      'pages/arrivals/index',
+      'pages/user/index'
+    ],
     window: {
       backgroundTextStyle: 'light',
-      navigationBarBackgroundColor: '#fff',
-      navigationBarTitleText: 'WeChat',
-      navigationBarTextStyle: 'black'
+      navigationBarBackgroundColor: '#7acfa6',
+      navigationBarTitleText: '星辰工作室',
+      navigationBarTextStyle: 'white'
+    },
+    tabBar: {
+      selectedColor: '#4cc9ac',
+      list: [
+        {
+          pagePath: 'pages/date/index',
+          text: '日程',
+          iconPath: 'static/icon/date.png',
+          selectedIconPath: 'static/icon/date-active.png'
+        },
+        {
+          pagePath: 'pages/aftifact/index',
+          text: '神器',
+          iconPath: 'static/icon/aftifact.png',
+          selectedIconPath: 'static/icon/aftifact-active.png'
+        },
+        {
+          pagePath: 'pages/ground/index',
+          text: '广场',
+          iconPath: 'static/icon/ground.png',
+          selectedIconPath: 'static/icon/ground-active.png'
+        },
+        {
+          pagePath: 'pages/arrivals/index',
+          text: '直达',
+          iconPath: 'static/icon/arrivals.png',
+          selectedIconPath: 'static/icon/arrivals-active.png'
+        },
+        {
+          pagePath: 'pages/user/index',
+          text: '我的',
+          iconPath: 'static/icon/user.png',
+          selectedIconPath: 'static/icon/user-active.png'
+        }
+      ]
     },
     cloud: true
   }

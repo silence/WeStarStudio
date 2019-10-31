@@ -1,24 +1,10 @@
-function throttle(func: Function, wait: number) {
-  let ctx, rtn, timeoutID
-  let last = 0
-
-  return function(...args: any[]) {
-    ctx = this
-    var delta = new Date().getTime() - last
-    if (!timeoutID) {
-      if (delta >= wait) call(args)
-      else timeoutID = setTimeout(call, wait - delta)
+export function throttle(func, delay) {
+  var last = 0
+  return function(...args) {
+    var curr = +new Date()
+    if (curr - last > delay) {
+      func.apply(this, args)
+      last = curr
     }
-    return rtn
-  }
-
-  function call(args) {
-    timeoutID = 0
-    last = new Date().getTime()
-    rtn = func.apply(ctx, args)
-    ctx = null
-    args = null
   }
 }
-
-export { throttle }

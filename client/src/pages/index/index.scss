@@ -1,0 +1,24 @@
+@import '~taro-ui/dist/style/components/input.scss';
+// @import '~taro-ui/dist/style/components/icon.scss';
+
+.picker-wrapper {
+  position: relative;
+  padding: 24rpx 0;
+  margin-left: 32rpx;
+  margin-bottom: 1px;
+  display: flex;
+  .title {
+    margin-right: 16rpx;
+    width: 172rpx;
+    font-size: 32rpx;
+    line-height: 1.5;
+    vertical-align: middle;
+    text-align: left;
+  }
+  .text {
+    font-size: 32rpx;
+    height: 44.8rpx;
+    line-height: 1.5;
+    flex: 1;
+  }
+}
