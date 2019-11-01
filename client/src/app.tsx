@@ -19,14 +19,14 @@ class App extends Component {
    */
   config: Config = {
     pages: [
-      'pages/checkin/index',
       'pages/date/index',
-      'pages/login/index',
-      'pages/index/index',
-      'pages/aftifact/index',
-      'pages/ground/index',
+      'pages/checkin/index',
 
-      'pages/user/index'
+      'pages/login/index',
+      'pages/index/index'
+      // 'pages/aftifact/index',
+      // 'pages/ground/index',
+      // 'pages/user/index'
     ],
     window: {
       backgroundTextStyle: 'light',
@@ -45,28 +45,28 @@ class App extends Component {
         },
         {
           pagePath: 'pages/date/index',
-          text: '日程',
+          text: '签到数据',
           iconPath: 'static/icon/date.png',
           selectedIconPath: 'static/icon/date-active.png'
-        },
-        {
-          pagePath: 'pages/aftifact/index',
-          text: '神器',
-          iconPath: 'static/icon/aftifact.png',
-          selectedIconPath: 'static/icon/aftifact-active.png'
-        },
-        {
-          pagePath: 'pages/ground/index',
-          text: '广场',
-          iconPath: 'static/icon/ground.png',
-          selectedIconPath: 'static/icon/ground-active.png'
-        },
-        {
-          pagePath: 'pages/user/index',
-          text: '我的',
-          iconPath: 'static/icon/user.png',
-          selectedIconPath: 'static/icon/user-active.png'
         }
+        // {
+        //   pagePath: 'pages/aftifact/index',
+        //   text: '神器',
+        //   iconPath: 'static/icon/aftifact.png',
+        //   selectedIconPath: 'static/icon/aftifact-active.png'
+        // },
+        // {
+        //   pagePath: 'pages/ground/index',
+        //   text: '广场',
+        //   iconPath: 'static/icon/ground.png',
+        //   selectedIconPath: 'static/icon/ground-active.png'
+        // },
+        // {
+        //   pagePath: 'pages/user/index',
+        //   text: '我的',
+        //   iconPath: 'static/icon/user.png',
+        //   selectedIconPath: 'static/icon/user-active.png'
+        // }
       ]
     },
     cloud: true

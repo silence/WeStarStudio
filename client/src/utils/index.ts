@@ -53,3 +53,10 @@ export async function checkIn(studentNumber: number) {
     data: { studentNumber }
   })
 }
+
+export async function checkInRecord(studentNumber: number) {
+  return await Taro.cloud.callFunction({
+    name: 'checkInRecord',
+    data: { studentNumber }
+  })
+}

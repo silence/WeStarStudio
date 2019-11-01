@@ -3,6 +3,7 @@ $color-info: #ffc0cb; // leereliu pick pink color
 @import '~taro-ui/dist/style/components/button.scss';
 @import '~taro-ui/dist/style/components/message.scss';
 @import '~taro-ui/dist/style/components/icon.scss';
+@import '~taro-ui/dist/style/components/loading.scss';
 
 .wifi-info {
   position: absolute;
@@ -10,10 +11,10 @@ $color-info: #ffc0cb; // leereliu pick pink color
   z-index: 100;
   margin: 0 auto;
   color: #fff;
-  left: 50%;
-  transform: translateX(-50%);
   height: 40px;
   line-height: 40px;
+  width: 100vw;
+  text-align: center;
   .icon {
     display: inline-block;
     color: #fff;

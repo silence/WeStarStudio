@@ -1,0 +1,16 @@
+$color-brand: #7acfa6;
+@import '~taro-ui/dist/style/components/list.scss';
+@import '~taro-ui/dist/style/components/icon.scss';
+@import '~taro-ui/dist/style/components/activity-indicator.scss';
+@import '~taro-ui/dist/style/components/loading.scss';
+.at-list__item--thumb .item-thumb {
+  margin-right: 24rpx;
+  width: 67rpx;
+  height: 67rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.at-list__item-extra {
+  max-width: none;
+  text-align: right;
+}
