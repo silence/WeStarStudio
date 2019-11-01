@@ -13,8 +13,8 @@ interface ICheckInRecord {
 
 export default () => {
   const [list, setList] = useState<Array<ICheckInRecord>>([])
+  let studentNumber: number
   useDidShow(async () => {
-    let studentNumber
     await Taro.getStorage({ key: 'userInfo' })
       .then(res => {
         console.log(res)
@@ -44,7 +44,13 @@ export default () => {
                 title={curr.nickName}
                 note={curr.name}
                 thumb={curr.avatarUrl}
-                extraText={new Date(curr.checkInTime).toLocaleString()}
+                extraText={`${new Date(curr.checkInTime).getMonth() + 1}/${new Date(
+                  curr.checkInTime
+                ).getDate()}/${new Date(curr.checkInTime).getFullYear()} ${new Date(
+                  curr.checkInTime
+                ).getHours()}:${new Date(curr.checkInTime).getMinutes()}:${new Date(
+                  curr.checkInTime
+                ).getSeconds()}`}
               />
             )
           })

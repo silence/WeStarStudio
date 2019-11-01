@@ -5,15 +5,18 @@ import { getConnectedWifi, checkIn } from '@/utils'
 import './index.scss'
 
 export default () => {
-  let wifiBSSID, studentNumber
+  let wifiBSSID
+  const [studentNumber, setStudentNumber] = useState<number>()
   const [wifi, setWifi] = useState('')
   const [checkInState, setCheckInState] = useState<boolean | 'initial'>('initial')
   const [loading, setLoading] = useState(false)
   const handleClick = async () => {
+    console.log(studentNumber)
     await getWifi()
+    // wifiBSSID === 'cc:81:da:f3:b5:d8' || wifiBSSID === 'cc:81:da:f3:b5:d0'
     if (wifiBSSID === 'cc:81:da:f3:b5:d8' || wifiBSSID === 'cc:81:da:f3:b5:d0') {
       // 上传数据库操作
-      checkIn(studentNumber)
+      checkIn(studentNumber as number)
         .then(res => {
           setCheckInState(true)
         })
@@ -62,8 +65,8 @@ export default () => {
     Taro.getStorage({ key: 'userInfo' })
       .then(res => {
         console.log(res)
-        studentNumber = Number(JSON.parse(res.data).studentNumber)
-        // for test
+        setStudentNumber(Number(JSON.parse(res.data).studentNumber))
+        //for test
         // checkIn(studentNumber)
         //   .then(res => console.log(res))
         //   .catch(err => console.log(err, 'err'))

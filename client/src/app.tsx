@@ -19,9 +19,8 @@ class App extends Component {
    */
   config: Config = {
     pages: [
-      'pages/date/index',
       'pages/checkin/index',
-
+      'pages/date/index',
       'pages/login/index',
       'pages/index/index'
       // 'pages/aftifact/index',
