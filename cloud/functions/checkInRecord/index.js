@@ -80,6 +80,7 @@ exports.main = async (event, context) => {
     .where({
       week: calculateWeek()
     })
+    .orderBy('checkInTime', 'desc')
     .get()
 
   return data.map(curr => {
