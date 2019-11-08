@@ -32,12 +32,21 @@ interface IUserInfo {
 export async function updateUserInfoC(userInfo: IUserInfo) {
   const db = Taro.cloud.database()
   const userInfoC = db.collection('userInfoC')
-  return await userInfoC.add({
-    data: {
-      _id: userInfo.studentNumber,
-      ...userInfo
-    }
-  })
+  console.log((await userInfoC.where({ _id: userInfo.studentNumber }).count()).total)
+  const isStudentNumberExist = (await userInfoC.where({ _id: userInfo.studentNumber }).count())
+    .total
+  return isStudentNumberExist
+    ? await userInfoC.doc(userInfo.studentNumber).set({
+        data: {
+          ...userInfo
+        }
+      })
+    : await userInfoC.add({
+        data: {
+          _id: userInfo.studentNumber,
+          ...userInfo
+        }
+      })
 }
 
 export function getConnectedWifi() {
