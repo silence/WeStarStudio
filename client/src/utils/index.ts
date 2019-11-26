@@ -17,6 +17,7 @@ export async function getOpenId() {
     data: {}
   })
 }
+
 interface IUserInfo {
   openid: string
   name: string
@@ -32,7 +33,6 @@ interface IUserInfo {
 export async function updateUserInfoC(userInfo: IUserInfo) {
   const db = Taro.cloud.database()
   const userInfoC = db.collection('userInfoC')
-  console.log((await userInfoC.where({ _id: userInfo.studentNumber }).count()).total)
   const isStudentNumberExist = (await userInfoC.where({ _id: userInfo.studentNumber }).count())
     .total
   return isStudentNumberExist

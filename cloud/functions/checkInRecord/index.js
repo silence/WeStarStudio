@@ -44,8 +44,8 @@ exports.main = async (event, context) => {
       monday = subDays(today - 1)
       sunday = addDays(7 - today)
     }
-    return `${monday.getMonth() + 1}/${monday.getDate()}-${sunday.getMonth() +
-      1}/${sunday.getDate()}`
+    return `${monday.getFullYear()}/${monday.getMonth() +
+      1}/${monday.getDate()}-${monday.getFullYear()}/${sunday.getMonth() + 1}/${sunday.getDate()}`
   }
 
   /**
