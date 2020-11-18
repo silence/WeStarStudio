@@ -13,12 +13,14 @@ export default () => {
   const handleClick = async () => {
     console.log(studentNumber)
     await getWifi()
-    // wifiBSSID === 'cc:81:da:f3:b5:d8' || wifiBSSID === 'cc:81:da:f3:b5:d0'
     if (
+      // 清水河
       wifiBSSID === 'cc:81:da:f3:b5:d8' ||
       wifiBSSID === 'cc:81:da:f3:b5:d0' ||
+      // 沙河
       wifiBSSID === 'a0:63:91:87:0b:fa' ||
-      wifiBSSID === 'a0:63:91:87:0b:fb'
+      wifiBSSID === 'a0:63:91:87:0b:fb' || 
+      wifiBSSID === 'a0:63:91:87:0b:fc'
     ) {
       // 上传数据库操作
       checkIn(studentNumber as number)
